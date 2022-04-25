@@ -1,0 +1,63 @@
+version: '2'
+
+services:
+  signal:
+    build: "."
+    # TODO Tighten permissions after I get yarn test working
+    command: ["tail", "-f", "/dev/null"]
+    privileged: true
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - ALL
+    volumes:
+      - "./.babelrc.js:/home/node/Signal-Desktop/.babelrc.js"
+      - "./.eslintignore:/home/node/Signal-Desktop/.eslintignore"
+      - "./.eslintrc.js:/home/node/Signal-Desktop/.eslintrc.js"
+      - "./.git:/home/node/Signal-Desktop/.git"
+      - "./.gitattributes:/home/node/Signal-Desktop/.gitattributes"
+      - "./.github:/home/node/Signal-Desktop/.github"
+      - "./.gitignore:/home/node/Signal-Desktop/.gitignore"
+      - "./.mocharc.json:/home/node/Signal-Desktop/.mocharc.json"
+      - "./.nvmrc:/home/node/Signal-Desktop/.nvmrc"
+      - "./.prettierignore:/home/node/Signal-Desktop/.prettierignore"
+      - "./.prettierrc.js:/home/node/Signal-Desktop/.prettierrc.js"
+      - "./.storybook:/home/node/Signal-Desktop/.storybook"
+      - "./.tx:/home/node/Signal-Desktop/.tx"
+      - "./.yarnclean:/home/node/Signal-Desktop/.yarnclean"
+      - "./_locales:/home/node/Signal-Desktop/_locales"
+      - "./about.html:/home/node/Signal-Desktop/about.html"
+      - "./app:/home/node/Signal-Desktop/app"
+      - "./aptly.sh:/home/node/Signal-Desktop/aptly.sh"
+      - "./background.html:/home/node/Signal-Desktop/background.html"
+      - "./build:/home/node/Signal-Desktop/build"
+      - "./ci.js:/home/node/Signal-Desktop/ci.js"
+      - "./command.sh:/home/node/Signal-Desktop/command.sh"
+      - "./components:/home/node/Signal-Desktop/components"
+      - "./config:/home/node/Signal-Desktop/config"
+      - "./debug_log.html:/home/node/Signal-Desktop/debug_log.html"
+      - "./fixtures:/home/node/Signal-Desktop/fixtures"
+      - "./fonts:/home/node/Signal-Desktop/fonts"
+      - "./images:/home/node/Signal-Desktop/images"
+      - "./js:/home/node/Signal-Desktop/js"
+      - "./libtextsecure:/home/node/Signal-Desktop/libtextsecure"
+      - "./loading.html:/home/node/Signal-Desktop/loading.html"
+      - "./package.json:/home/node/Signal-Desktop/package.json"
+      - "./patches:/home/node/Signal-Desktop/patches"
+      - "./permissions_popup.html:/home/node/Signal-Desktop/permissions_popup.html"
+      - "./preload.bundle.js:/home/node/Signal-Desktop/preload.bundle.js"
+      - "./preload.js:/home/node/Signal-Desktop/preload.js"
+      - "./preload_test.js:/home/node/Signal-Desktop/preload_test.js"
+      - "./protos:/home/node/Signal-Desktop/protos"
+      - "./release:/home/node/Signal-Desktop/release"
+      - "./screenShare.html:/home/node/Signal-Desktop/screenShare.html"
+      - "./scripts:/home/node/Signal-Desktop/scripts"
+      - "./settings.html:/home/node/Signal-Desktop/settings.html"
+      - "./sounds:/home/node/Signal-Desktop/sounds"
+      - "./sticker-creator:/home/node/Signal-Desktop/sticker-creator"
+      - "./stylesheets:/home/node/Signal-Desktop/stylesheets"
+      - "./test:/home/node/Signal-Desktop/test"
+      - "./ts:/home/node/Signal-Desktop/ts"
+      - "./tsconfig.json:/home/node/Signal-Desktop/tsconfig.json"
+      - "./webpack.config.ts:/home/node/Signal-Desktop/webpack.config.ts"
+      - "./yarn.lock:/home/node/Signal-Desktop/yarn.lock"
